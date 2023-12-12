@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Navbar() {
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="/">Smart Inventory Management System</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -14,14 +14,14 @@ export default function Navbar() {
           <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/">Products</a>
+          <a class="nav-link" href="/Products">Products</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link disabled" href="/" tabindex="-1" aria-disabled="true">Cart</a>
+          <a class="nav-link" href="/Cart" tabindex="-1" >Cart</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="/" tabindex="-1" aria-disabled="true">Invoice</a>
+          <a class="nav-link" href="/Invoice" tabindex="-1" >Invoice</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">

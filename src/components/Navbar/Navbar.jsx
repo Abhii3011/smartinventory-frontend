@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Navbar() {
+function Navbar() {
   return (
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="/">Smart Inventory Management System</a>
@@ -11,17 +11,24 @@ export default function Navbar() {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/Products">Products</a>
         </li>
         
         <li class="nav-item">
+<<<<<<< HEAD:src/components/Navbar/Navbar.js
           <a class="nav-link" href="/Cart" tabindex="-1" >Cart</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/Invoice" tabindex="-1" >Invoice</a>
+=======
+          <a class="nav-link" href="/" tabindex="-1" aria-disabled="true">Cart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/" tabindex="-1" aria-disabled="true">Invoice</a>
+>>>>>>> e32e462e4a0eed9e8634be20134c3ab571d6704d:src/components/Navbar/Navbar.jsx
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
@@ -32,3 +39,5 @@ export default function Navbar() {
   </nav>
   )
 }
+
+export default Navbar;

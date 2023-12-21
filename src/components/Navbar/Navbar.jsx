@@ -18,17 +18,10 @@ function Navbar() {
         </li>
         
         <li class="nav-item">
-<<<<<<< HEAD:src/components/Navbar/Navbar.js
           <a class="nav-link" href="/Cart" tabindex="-1" >Cart</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/Invoice" tabindex="-1" >Invoice</a>
-=======
-          <a class="nav-link" href="/" tabindex="-1" aria-disabled="true">Cart</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/" tabindex="-1" aria-disabled="true">Invoice</a>
->>>>>>> e32e462e4a0eed9e8634be20134c3ab571d6704d:src/components/Navbar/Navbar.jsx
+          <a class="nav-link" href="/invoice" tabindex="-1" >Invoice</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">

@@ -1,0 +1,22 @@
+.section {
+    position: relative;
+    background-image: url(https://assets-global.website-files.com/60edc0a8835d5b38bf11f03f/61cf04f457f55252a5a31c53_Cloud-based-Inventory-Management-System.png);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.section card{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+

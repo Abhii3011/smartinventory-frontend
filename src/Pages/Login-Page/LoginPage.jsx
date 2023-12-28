@@ -1,10 +1,14 @@
 import React from "react";
-import './LoginPage.css'
+import './LoginPage.css';
+import LoginCard from "../../components/cards/LoginCard";
 
-function LoginPage(){
+function LoginPage()
+{
     return (
-        <h1>This is Login Page</h1>
+        <div className="section">
+            <LoginCard className="card"/>
+        </div>
     )
 }
- 
+
 export default LoginPage;

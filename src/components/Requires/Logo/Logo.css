@@ -1,0 +1,27 @@
+.logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: #343a40!important;
+    color: white;
+    cursor: pointer;
+}
+
+.logo {
+    height: 3rem;
+    display: inline-block;
+}
+
+.logo-text {
+    font-style: italic;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+
+.logo-text :hover {
+    text-decoration: none;
+    color: inherit;
+}

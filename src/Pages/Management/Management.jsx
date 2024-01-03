@@ -1,10 +1,15 @@
 import React from 'react'
+import Navbar from '../../components/Navbar'
 
 function Management() {
   return (
     <div>
-      <p>Management Page</p>
+        <Navbar/>
+
+
     </div>
+    
+    
   )
 }
 

@@ -1,0 +1,45 @@
+/* Add this CSS to your existing stylesheet or create a new one */
+
+.product-card {
+    display: flex;
+    flex-direction: column; /* Adjust the flex direction to column */
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .product-image {
+    width: 100px; /* Set the width as per your design */
+    height: 100px; /* Set the height as per your design */
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  .product-details {
+    flex-grow: 1;
+    text-align: center; /* Center the product details */
+  }
+  
+  .product-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .product-price {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  
+  .add-to-cart {
+    margin-top: 10px; /* Push the "Add to Cart" button to the bottom */
+  }
+  
+  .add-to-cart button {
+    width: 100%;
+    margin-left: 1px; /* Make the button full width */
+  }
+  

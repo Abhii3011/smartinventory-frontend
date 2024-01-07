@@ -5,6 +5,7 @@
     flex-direction: column; /* Adjust the flex direction to column */
     align-items: center;
     padding: 10px;
+    background-color: #E8E5E5;
     border: 1px solid #ddd;
     border-radius: 8px;
     margin-bottom: 15px;
@@ -14,6 +15,7 @@
     width: 100px; /* Set the width as per your design */
     height: 100px; /* Set the height as per your design */
     object-fit: cover;
+    
     margin-bottom: 10px;
     border-radius: 5px;
   }
@@ -37,9 +39,49 @@
   .add-to-cart {
     margin-top: 10px; /* Push the "Add to Cart" button to the bottom */
   }
-  
-  .add-to-cart button {
-    width: 100%;
-    margin-left: 1px; /* Make the button full width */
+
+  .quantity{
+    margin-left: 10px;
+    margin-right: 10px;
   }
+  .cardbody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
+
+.button-37 {
+  background-color: #13aa52;
+  border: 1px solid #13aa52;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-37:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .button-37 {
+    padding: 10px 30px;
+  }
+}
   

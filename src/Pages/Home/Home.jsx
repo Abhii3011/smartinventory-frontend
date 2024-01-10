@@ -79,7 +79,7 @@ function Home() {
     <div>
       <Navbar />
       <div className="container">
-        <h1 className="text-center mt-4 mb-4">Welcome to Our Store</h1>
+        <h3 className="text-center mt-4 mb-4">Our Products</h3>
         <div className="row">
           {products.map((product) => (
             <div key={product.id} className="col-md-4">

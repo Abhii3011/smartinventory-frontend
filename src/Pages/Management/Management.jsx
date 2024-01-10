@@ -6,14 +6,14 @@ import { Link } from 'react-router-dom';
 import './Management.css'; // Import your CSS file for styling
 
 function Management() {
-  // Retrieve user details from local storage
+  // Retrieve user details from local storage and will be deleted when loggig out 
   const user = JSON.parse(localStorage.getItem('user'));
 
   return (
     <div className="management-page">
       <Navbar />
       <Sidebar>
-        {/* Your existing menu items */}
+        {/*  sidebarrr */}
         <Menu
           menuItemStyles={{
             button: {
@@ -24,7 +24,7 @@ function Management() {
             },
           }}
         >
-          <MenuItem component={<Link to="" />}>User Details</MenuItem>
+          <MenuItem component={<Link to="/management" />}>User Details</MenuItem>
           <MenuItem component={<Link to="/management/godowns" />}>Godowns</MenuItem>
           <MenuItem component={<Link to="/management/employees" />}>Employees</MenuItem>
           <MenuItem component={<Link to="/management/inwards" />}>Inwards</MenuItem>
@@ -35,7 +35,7 @@ function Management() {
       </Sidebar>
 
       {/* Display welcome message with user details */}
-      <div className="welcome-message">
+      <div className="welcome-message" style={{height:'100%'}}>
         {user && (
           <p>
             Welcome <span style={{ color: 'red', fontWeight: 'bold' }}>{user.name} !</span> <br />

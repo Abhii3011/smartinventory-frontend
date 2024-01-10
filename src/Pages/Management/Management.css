@@ -6,22 +6,22 @@
     align-items: center;
     padding: 30px;
     font-size: 20px;
-    background-color: #f0f0f0; /* Background color for the welcome message area */
-    border-left: 2px solid #ccc; /* Border between sidebar and welcome message */
+    background-color: #f0f0f0; 
+    border-left: 2px solid #ccc; 
     position: relative;
-    margin-left: 250px; /* Adjust the horizontal position */
+    margin-left: 250px; 
     top: -350px;
   }
   
   .welcome-message p {
-    text-align: center; /* Center-align the text */
-    margin: 0; /* Remove default margin for paragraphs */
+    text-align: center; 
+    margin: 0; 
   }
   
   /* Additional text styles */
   .additional-text {
     padding: 11px;
-    font-size: 16px; /* Adjust the font size */
-    color: #555; /* Set the text color */
+    font-size: 16px; 
+    color: #555; 
   }
   

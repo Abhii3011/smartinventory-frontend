@@ -7,7 +7,7 @@ function GodownDetailsTable({ selectedUser }) {
 
   return (
     <div className="user-details-table">
-      <h2>User Details</h2>
+      <h2>Godown Details</h2>
       <table className="table table-bordered">
         <tbody>
           <tr>
@@ -15,13 +15,14 @@ function GodownDetailsTable({ selectedUser }) {
             <td>{selectedUser.id}</td>
           </tr>
           <tr>
-            <th>Name</th>
+            <th>Manager</th>
             <td>{`${selectedUser.first_name} ${selectedUser.last_name}`}</td>
           </tr>
           <tr>
-            <th>Email</th>
-            <td>{selectedUser.email}</td>
+            <th>Godown Location</th>
+            <td>Location</td>
           </tr>
+
         </tbody>
       </table>
     </div>

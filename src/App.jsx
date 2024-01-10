@@ -4,6 +4,7 @@ import Home from './Pages/Home';
 import Invoice from './Pages/Invoice';
 import LoginPage from './Pages/Login-Page';
 import Management from './Pages/Management';
+import Cart from './Pages/Cart';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <Route index path = "/home" element = {<Home/>}/>
     <Route index path='/invoice' element = {<Invoice/>}/>
     <Route index path='/management' element = {<Management/>}/>
+    <Route index path='/cart' element = {<Cart/>}/>
   </Routes>
   
 </Router>

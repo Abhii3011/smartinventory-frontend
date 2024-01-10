@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Logo from '../Requires/Logo';
-import UserDetailsTable from '../GodownDetails/UserDetailsTable';
+import GodownDetailsTable from '../GodownDetails';
 import './Navbar.css';
+import Logout from '../cards/Logout';
 
 function Navbar() {
   const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
+  const [logoutVisible, setLogoutVisible] = useState(false);
 
   useEffect(() => {
     // Fetch Users data from ReqRes API
@@ -19,6 +21,11 @@ function Navbar() {
     const selectedUserId = event.target.value;
     const selectedUser = users.find(user => user.id === parseInt(selectedUserId, 10));
     setSelectedUser(selectedUser);
+  };
+
+  const handleLogout = () => {
+    // Show the Logout component
+    setLogoutVisible(true);
   };
 
   return (
@@ -44,23 +51,6 @@ function Navbar() {
                 Home <span className="sr-only">(current)</span>
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/Products">
-                Products
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/Cart" tabIndex="-1">
-                Cart
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/management" tabIndex="-1">
-                Management
-              </a>
-            </li>
-
-            {/* Godown dropdown */}
             <li className="nav-item dropdown">
               <select
                 className="form-control"
@@ -75,27 +65,32 @@ function Navbar() {
                 ))}
               </select>
             </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/Cart" tabIndex="-1">
+                Cart
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/management" tabIndex="-1">
+                Management
+              </a>
+            </li>
+
+            {/* Godown dropdown */}
+           
           </ul>
 
-          <form className="form-inline my-2 my-lg-0">
-            <input
-              className="form-control mr-sm-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button
-              className="btn btn-outline-success my-2 my-sm-0"
-              type="submit"
-            >
-              Search
-            </button>
-          </form>
+          <button className="btn btn-outline-danger" onClick={handleLogout}>
+            Logout
+          </button>
         </div>
       </nav>
 
       {/* Render User Details Table below the Navbar */}
-      <UserDetailsTable selectedUser={selectedUser} />
+      <GodownDetailsTable selectedUser={selectedUser} />
+
+      {/* Render the Logout component if visible */}
+      {logoutVisible && <Logout />}
     </>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function UserDetailsTable({ selectedUser }) {
+function GodownDetailsTable({ selectedUser }) {
   if (!selectedUser) {
     return null;
   }
@@ -28,4 +28,4 @@ function UserDetailsTable({ selectedUser }) {
   );
 }
 
-export default UserDetailsTable;
+export default GodownDetailsTable;

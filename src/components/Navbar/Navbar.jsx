@@ -80,7 +80,7 @@ function Navbar() {
            
           </ul>
 
-          <button className="btn btn-outline-danger" onClick={handleLogout}>
+          <button className="btn btn-outline-danger" style={{backgroundColor:'red', color:'white'}}   onClick={handleLogout}>
             Logout
           </button>
         </div>

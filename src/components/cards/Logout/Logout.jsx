@@ -5,19 +5,18 @@ const Logout = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulating a delay for demonstration purposes (you can remove this in a real application)
+   
     const timeoutId = setTimeout(() => {
       // Clear user data from local storage
       localStorage.removeItem('user');
 
-      // Stop the loading spinner
+      // Stoping the spinner
       setLoading(false);
 
       // Redirect to the login page after the animation completes
       window.location.href = '/';
     }, 4000); // Simulated 4 seconds delay
 
-    // Clear the timeout if the component unmounts
     return () => clearTimeout(timeoutId);
   }, []);
 

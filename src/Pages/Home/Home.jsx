@@ -15,6 +15,17 @@ function Home() {
     setShowProceedToCart(true);
   };
 
+  const handleRemoveFromCart = (product) => {
+    setCartItems((prevCartItems) => {
+      if (prevCartItems.length === 1) {
+        setShowProceedToCart(false);
+        return [];
+      } else {
+        return prevCartItems.filter((item) => item.id !== product.id);
+      }
+    });
+  };
+
   const handleProceedToCart = () => {
     navigate('/cart', { state: { cartItems } });
   };
@@ -72,7 +83,9 @@ function Home() {
         <div className="row">
           {products.map((product) => (
             <div key={product.id} className="col-md-4">
-              <ProductCard product={product} onAddToCart={() => handleAddToCart(product)} />
+              <ProductCard product={product} onAddToCart={() => handleAddToCart(product)}
+               onRemoveFromCart={()=> handleRemoveFromCart(product)}
+               />
             </div>
           ))}
         </div>

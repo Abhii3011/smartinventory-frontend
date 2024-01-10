@@ -1,27 +1,39 @@
-/* Welcome message styles */
+/* Management.css */
+.management-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Set the height of the entire page to full viewport height */
+}
+
+.management-content {
+  display: flex;
+  width: 100%;
+}
+
+.management-main {
+  flex: 1; /* Allow the main content to take up remaining space */
+  padding: 20px;
+}
+
+/* Adjust the following styles based on your design preferences */
+/* Sidebar styling */
+.react-pro-sidebar {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Navbar styling */
+/* Add styles for your Navbar */
+
+/* UserDetails styling */
 .welcome-message {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-    font-size: 20px;
-    background-color: #f0f0f0; /* Background color for the welcome message area */
-    border-left: 2px solid #ccc; /* Border between sidebar and welcome message */
-    position: relative;
-    margin-left: 250px; /* Adjust the horizontal position */
-    top: -350px;
-  }
-  
-  .welcome-message p {
-    text-align: center; /* Center-align the text */
-    margin: 0; /* Remove default margin for paragraphs */
-  }
-  
-  /* Additional text styles */
-  .additional-text {
-    padding: 11px;
-    font-size: 16px; /* Adjust the font size */
-    color: #555; /* Set the text color */
-  }
-  
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.additional-text {
+  margin-top: 10px;
+}
+
+/* Add additional styles for other components as needed */

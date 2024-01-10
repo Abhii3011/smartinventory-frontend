@@ -2,11 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Logo from '../Requires/Logo';
 import GodownDetailsTable from '../GodownDetails';
 import './Navbar.css';
-<<<<<<< HEAD
 import Logout from '../cards/Logout';
-=======
-  
->>>>>>> 78a05189bf5477f10ed1e5f11383ef751d8db543
 
 function Navbar() {
   const [users, setUsers] = useState([]);
@@ -26,15 +22,12 @@ function Navbar() {
     const selectedUser = users.find(user => user.id === parseInt(selectedUserId, 10));
     setSelectedUser(selectedUser);
   };
-<<<<<<< HEAD
 
   const handleLogout = () => {
     // Show the Logout component
     setLogoutVisible(true);
   };
 
-=======
->>>>>>> 78a05189bf5477f10ed1e5f11383ef751d8db543
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import Navbar from '../../components/Navbar';
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
   const location = useLocation();
   const cartItems = location.state?.cartItems;
-
+  const navigate = useNavigate();
   const [cart, setCart] = useState(cartItems);
 
   const handleIncrement = (itemId) => {
@@ -34,9 +35,16 @@ const Cart = () => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
+  // const handleCheckout = () => {
+  //   console.log('Proceeding to Checkout');
+  // };
   const handleCheckout = () => {
-    console.log('Proceeding to Checkout');
+    const total = calculateTotalPrice();
+    navigate('/invoice', {
+      state: { cartItems, totalPrice: total },
+    });
   };
+  
 
   return (
     <div>
@@ -68,7 +76,7 @@ const Cart = () => {
                     +
                   </button>
                 </div>
-                <span>${item.price * item.quantity}</span>
+                <span>₹{item.price * item.quantity}</span>
                 <button
                   className="btn btn-danger btn-sm"
                   onClick={() => handleRemove(item.id)}
@@ -81,7 +89,7 @@ const Cart = () => {
         )}
         {cart.length > 0 && (
           <div className="total-section">
-            <h5>Total: ${calculateTotalPrice().toFixed(2)}</h5>
+            <h5>Total: ₹{calculateTotalPrice().toFixed(2)}</h5>
             <button className="btn btn-success" onClick={handleCheckout}>
               Proceed to Checkout
             </button>

@@ -1,2 +1,2 @@
-import Invoice from "./Invoice";
-export default Invoice;
+import InvoicePage from "./InvoicePage";
+export default InvoicePage;

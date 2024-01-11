@@ -27,7 +27,7 @@ const ProductCard = ({ product, onAddToCart, onRemoveFromCart }) => {
 
           <div className="product-details">
             <h5 className="product-name">{product.name}</h5>
-            <h4 className="product-price mb-0">${product.price}</h4>
+            <h4 className="product-price mb-0">₹{product.price}</h4>
 
             {isButtonDisabled && (
               <div className="d-flex flex-coloumn align-items-center mt-2" style={{flexDirection : 'column'}}>

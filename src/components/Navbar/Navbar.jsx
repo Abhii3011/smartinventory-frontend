@@ -4,24 +4,43 @@ import GodownDetailsTable from '../GodownDetails';
 import './Navbar.css';
 import Logout from '../cards/Logout';
 import { useNavigate } from 'react-router-dom';
+import ChangePasswordForm from '../ChangePasswordForm';
+import {authenticateUser, updateUserPassword} from '../authenticateService/authService';
+
+
 
 
 
 // Import the dummy Godown data
 import { GodownTableData } from '../ManagementData/ManagementData';
 
-function Navbar() {
+function Navbar({cartItems}) {
   const [selectedGodown, setSelectedGodown] = useState(null);
   const [logoutVisible, setLogoutVisible] = useState(false);
+  const [changePasswordVisible, setChangePasswordVisible] = useState(false);
   const navigate = useNavigate();
 
-  const handleCartItems = () => {
-    navigate('/cart');
+  const handlePasswordChange = (email, oldPassword, newPassword) => {
+    const user = authenticateUser(email, oldPassword);
+    if (!user) {
+      alert('Invalid email or old password. Change password failed.');
+      return;
+    }
+
+    // Update user password
+    updateUserPassword(email, newPassword);
+
+    setChangePasswordVisible(false);
+    alert('Password changed successfully!');
   };
-  
+
   // const handleCartItems = () => {
-  //   navigate('/cart', { state: { cartItems } });
+  //   navigate('/cart');
   // };
+  
+  const handleCartItems = () => {
+    navigate('/cart', { state: { cartItems } });
+  };
 
   const handleGodownChange = (event) => {
     const selectedGodownId = event.target.value;
@@ -76,7 +95,7 @@ function Navbar() {
               </select>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/cart" onClick={handleCartItems} tabIndex="-1">
+              <a className="nav-link" href="/cart" onClick={handleCartItems} >
                 Cart
               </a>
             </li>
@@ -84,6 +103,15 @@ function Navbar() {
               <a className="nav-link" href="/management" tabIndex="-1">
                 Management
               </a>
+            </li>
+            {/* Add a button for changing password */}
+            <li className="nav-item">
+              <button
+                className="btn btn-outline-info"
+                onClick={() => setChangePasswordVisible(true)}
+              >
+                Change Password
+              </button>
             </li>
           </ul>
 
@@ -99,7 +127,7 @@ function Navbar() {
 
       {/* Render Godown Details Table below the Navbar */}
       <GodownDetailsTable selectedGodown={selectedGodown} />
-
+      {changePasswordVisible && <ChangePasswordForm onChangePassword={handlePasswordChange} />}
       {/* Render the Logout component if visible */}
       {logoutVisible && <Logout />}
     </>

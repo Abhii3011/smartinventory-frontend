@@ -33,47 +33,66 @@ function Home() {
   const products = [
     {
       id: 1,
-      name: 'Product 1',
+      name: 'Rice',
       imageUrl: ProductImage,
-      price: 13.99,
+      price: '50',
     },
     {
       id: 2,
-      name: 'Product 1',
+      name: 'Dal',
       imageUrl: ProductImage,
-      price: 13.89,
+      price: '30',
     },
     {
       id: 3,
-      name: 'Product 1',
+      name: 'Milk',
       imageUrl: ProductImage,
-      price: 13.99,
+      price: '25',
     },
     {
       id: 4,
-      name: 'Product 1',
+      name: 'Bread',
       imageUrl: ProductImage,
-      price: 13.99,
+      price: '20',
     },
     {
       id: 5,
-      name: 'Product 1',
+      name: 'Sugar',
       imageUrl: ProductImage,
-      price: 13.99,
+      price: '40',
     },
     {
       id: 6,
-      name: 'Product 1',
+      name: 'Tea Leaves',
       imageUrl: ProductImage,
-      price: 13.99,
+      price: '60',
     },
     {
       id: 7,
-      name: 'Product 1',
+      name: 'Onions',
       imageUrl: ProductImage,
-      price: 13.99,
-    }
+      price: '15',
+    },
+    {
+      id: 8,
+      name: 'Tomatoes',
+      imageUrl: ProductImage,
+      price: '25',
+    },
+    {
+      id: 9,
+      name: 'Potatoes',
+      imageUrl: ProductImage,
+      price: '20',
+    },
+    {
+      id: 10,
+      name: 'Eggs',
+      imageUrl: ProductImage,
+      price: '5',
+    },
   ];
+  
 
   return (
     <div>

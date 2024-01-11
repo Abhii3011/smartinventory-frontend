@@ -1,0 +1,33 @@
+.invoice-container {
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 60%;
+    background-color: #f8f8f8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .invoice-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+  }
+  
+  .invoice-item {
+    border-bottom: 1px solid #ddd;
+    padding: 8px 0;
+  }
+  
+  .tax-line {
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .total-price-line {
+    font-size: 18px;
+    font-weight: bold;
+    color: #008000;
+    margin-top: 20px;
+  }
+  

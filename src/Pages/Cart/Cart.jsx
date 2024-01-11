@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 
 const Cart = () => {
   const location = useLocation();
-  const cartItems = location.state?.cartItems || [];
+  const cartItems = location.state?.cartItems;
 
   const [cart, setCart] = useState(cartItems);
 

@@ -1,5 +1,4 @@
 
-
 export const EmployeeTableData = {
   columns: ['Employee ID', 'Employee Name', 'Role'],
   data: [

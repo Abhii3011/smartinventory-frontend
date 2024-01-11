@@ -1,13 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState,  } from 'react';
 import Logo from '../Requires/Logo';
 import GodownDetailsTable from '../GodownDetails';
 import './Navbar.css';
 import Logout from '../cards/Logout';
 import { useNavigate } from 'react-router-dom';
 
-function Navbar({cartItems}) {
-  const [users, setUsers] = useState([]);
-  const [selectedUser, setSelectedUser] = useState(null);
+// Import the dummy Godown data
+import { GodownTableData } from '../ManagementData/ManagementData';
+
+function Navbar() {
+// dont delete this below commented code
+  // const [users, setUsers] = useState([]);
+  // const [selectedUser, setSelectedUser] = useState(null);
+  // const [logoutVisible, setLogoutVisible] = useState(false);
+
+  // useEffect(() => {
+  //   // Fetch Users data from ReqRes API
+  //   fetch('https://reqres.in/api/users?page=1')
+  //     .then(response => response.json())
+  //     .then(data => setUsers(data.data))
+  //     .catch(error => console.error('Error fetching users:', error));
+  // }, []);
+
+  // const handleUserChange = event => {
+  //   const selectedUserId = event.target.value;
+  //   const selectedUser = users.find(user => user.id === parseInt(selectedUserId, 10));
+  //   setSelectedUser(selectedUser);
+  // };
+  const [selectedGodown, setSelectedGodown] = useState(null);
   const [logoutVisible, setLogoutVisible] = useState(false);
   const navigate = useNavigate();
 
@@ -15,24 +35,23 @@ function Navbar({cartItems}) {
     navigate('/cart', {state : {cartItems}})
   }
 
-  useEffect(() => {
-    // Fetch Users data from ReqRes API
-    fetch('https://reqres.in/api/users?page=1')
-      .then(response => response.json())
-      .then(data => setUsers(data.data))
-      .catch(error => console.error('Error fetching users:', error));
-  }, []);
+  // useEffect(() => {
+  //   // Set the initial selected Godown from the dummy data
+  //   setSelectedGodown(GodownTableData.data[0]);
+  // }, []);
 
-  const handleUserChange = event => {
-    const selectedUserId = event.target.value;
-    const selectedUser = users.find(user => user.id === parseInt(selectedUserId, 10));
-    setSelectedUser(selectedUser);
+  const handleGodownChange = event => {
+    const selectedGodownId = event.target.value;
+    const selectedGodown = GodownTableData.data.find(godown => godown.GodownID === selectedGodownId);
+    setSelectedGodown(selectedGodown);
   };
 
   const handleLogout = () => {
     // Show the Logout component
     setLogoutVisible(true);
   };
+
+  
 
   return (
     <>
@@ -57,7 +76,9 @@ function Navbar({cartItems}) {
                 Home <span className="sr-only">(current)</span>
               </a>
             </li>
-            <li className="nav-item dropdown">
+
+            {/* Godown dropdown */}
+            {/* <li className="nav-item dropdown">
               <select
                 className="form-control"
                 onChange={handleUserChange}
@@ -67,6 +88,20 @@ function Navbar({cartItems}) {
                 {users.map(user => (
                   <option key={user.id} value={user.id}>
                     {user.first_name} {user.last_name}
+                  </option>
+                ))}
+              </select>
+            </li> */}
+            <li className="nav-item dropdown">
+              <select
+                className="form-control"
+                onChange={handleGodownChange}
+                value={selectedGodown ? selectedGodown.GodownID : ''}
+              >
+                <option value="" >Select Godown</option>
+                {GodownTableData.data.map(godown => (
+                  <option key={godown.GodownID} value={godown.GodownID}>
+                    {godown.GodownID} - {godown.Location}
                   </option>
                 ))}
               </select>
@@ -81,19 +116,16 @@ function Navbar({cartItems}) {
                 Management
               </a>
             </li>
-
-            {/* Godown dropdown */}
-           
           </ul>
 
-          <button className="btn btn-outline-danger" style={{backgroundColor:'red', color:'white'}}   onClick={handleLogout}>
+          <button className="btn btn-outline-danger" style={{ backgroundColor: 'red', color: 'white' }} onClick={handleLogout}>
             Logout
           </button>
         </div>
       </nav>
 
-      {/* Render User Details Table below the Navbar */}
-      <GodownDetailsTable selectedUser={selectedUser} />
+      {/* Render Godown Details Table below the Navbar */}
+      <GodownDetailsTable selectedGodown={selectedGodown} />
 
       {/* Render the Logout component if visible */}
       {logoutVisible && <Logout />}

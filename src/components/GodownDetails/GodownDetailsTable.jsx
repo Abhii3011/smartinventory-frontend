@@ -1,7 +1,7 @@
 import React from 'react';
 
-function GodownDetailsTable({ selectedUser }) {
-  if (!selectedUser) {
+function GodownDetailsTable({ selectedGodown }) {
+  if (!selectedGodown) {
     return null;
   }
 
@@ -10,19 +10,12 @@ function GodownDetailsTable({ selectedUser }) {
       <h2 style={{fontStyle : 'italic'}}>Godown Details</h2>
       <table className="table table-bordered">
         <tbody>
-          <tr>
-            <th>ID</th>
-            <td>{selectedUser.id}</td>
-          </tr>
-          <tr>
-            <th>Manager</th>
-            <td>{`${selectedUser.first_name} ${selectedUser.last_name}`}</td>
-          </tr>
-          <tr>
-            <th>Godown Location</th>
-            <td>Location</td>
-          </tr>
-
+          {Object.entries(selectedGodown).map(([key, value]) => (
+            <tr key={key}>
+              <th>{key}</th>
+              <td>{value}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

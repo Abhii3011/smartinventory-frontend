@@ -3,11 +3,17 @@ import Logo from '../Requires/Logo';
 import GodownDetailsTable from '../GodownDetails';
 import './Navbar.css';
 import Logout from '../cards/Logout';
+import { useNavigate } from 'react-router-dom';
 
-function Navbar() {
+function Navbar({cartItems}) {
   const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
   const [logoutVisible, setLogoutVisible] = useState(false);
+  const navigate = useNavigate();
+
+  const handleCartItems = ()=>{
+    navigate('/cart', {state : {cartItems}})
+  }
 
   useEffect(() => {
     // Fetch Users data from ReqRes API
@@ -66,7 +72,7 @@ function Navbar() {
               </select>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/Cart" tabIndex="-1">
+              <a className="nav-link" href='/cart' onClick={handleCartItems} tabIndex="-1">
                 Cart
               </a>
             </li>

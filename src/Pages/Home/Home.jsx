@@ -77,7 +77,7 @@ function Home() {
 
   return (
     <div>
-      <Navbar />
+      <Navbar cartItems = {cartItems} />
       <div className="container">
         <h3 className="text-center mt-4 mb-4">Our Products</h3>
         <div className="row">

@@ -7,7 +7,7 @@ function GodownDetailsTable({ selectedUser }) {
 
   return (
     <div className="user-details-table">
-      <h2>Godown Details</h2>
+      <h2 style={{fontStyle : 'italic'}}>Godown Details</h2>
       <table className="table table-bordered">
         <tbody>
           <tr>

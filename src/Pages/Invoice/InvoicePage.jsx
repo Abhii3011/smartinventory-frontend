@@ -2,6 +2,8 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import './Invoice.css'; // Import your CSS file
 import jsPDF from 'jspdf';
+import Logo from '../../components/Requires/Logo';
+import { useNavigate } from 'react-router-dom';
 
 const InvoicePage = () => {
   const location = useLocation();
@@ -9,6 +11,7 @@ const InvoicePage = () => {
   const totalPrice = location.state?.totalPrice;
   const sgstRate = 0.18; // 18%
   const cgstRate = 0.18; // 18%
+  const navigate = useNavigate();
 
   const calculateTaxes = (price) => {
     const sgst = price * sgstRate;
@@ -39,6 +42,8 @@ const InvoicePage = () => {
   };
 
   return (
+    <div>
+      <center><h1 style={{fontStyle:'italic', color: 'white', backgroundColor:' #343a40'}}>Thank you for using <Logo/> </h1></center>
     <div className="invoice-container">
       <h2>Your Invoice</h2>
       <ul className="invoice-list">
@@ -55,6 +60,12 @@ const InvoicePage = () => {
       <button className="download-pdf-button" onClick={generatePDF}>
         Download PDF
       </button>
+    </div>
+    <center><button className='button-37' onClick={()=>navigate('/home')}>
+      Back Home
+    </button>
+    </center>
+
     </div>
   );
 };

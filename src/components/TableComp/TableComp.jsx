@@ -1,8 +1,14 @@
 import React from 'react'
 
-function TableComp({columns, data}) {
-    
+function TableComp({columns, data, clicked1,clicked2}) {
+    const handleClick=()=>{
+      clicked1('true')
+    }
+    const handleClick2 = ()=>{
+      clicked2(true)
+    }
   return (
+    <div>
          <table className="table">
       <thead>
         <tr>
@@ -20,7 +26,13 @@ function TableComp({columns, data}) {
           </tr>
         ))}
       </tbody>
+      
     </table>
+    <div>
+    <button className='button-37'style={{backgroundColor:'white', margin:'10px', color:'black'}} onClick={handleClick}>Add</button>
+    <button className='button-37'style={{backgroundColor:'white', margin:'10px', color:'black'}} onClick={handleClick2}>Delete</button>
+  </div>
+  </div>
   )
 }
 

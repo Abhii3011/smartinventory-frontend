@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TableComp from '../TableComp';
 import DynamicForm from '../InputForm/DynamicForm';
-import { DeliverItemTableData } from '../ManagementData/ManagementData';
+import { fetchDeliveryItemData } from '../ManagementData/ManagementData';
 import DeleteForm from '../InputForm/DeleteForm';
 function Delivery() {
-  const [deliveryData, setDeliveryData] = useState(DeliverItemTableData.data);
+  const [deliveryData, setDeliveryData] = useState([]);
   const [clicked1,setClicked1]=useState(false)
   const [clicked2,setClicked2]=useState(false)
+  useEffect(() => {
+    fetchDeliveryItemData()
+      .then((data) => { setDeliveryData(data)})
+      .catch((error) => console.error('Error setting Godown data:', error));
+  }, []);
   const handleClicked1=()=>{
     setClicked1(true)
     setClicked2(false)
@@ -21,15 +26,15 @@ function Delivery() {
   const handleDeleteEntry = (name) => {
     setDeliveryData((prevData) => prevData.filter((delivery) => delivery['Delivery ID'] !== name));
   };
-
+ console.info(deliveryData)
 
 
   return (
     <div>
-      <TableComp columns={DeliverItemTableData.columns} data={deliveryData} clicked1 ={()=>handleClicked1()} clicked2 = {()=>handleClicked2()}/>
+      <TableComp data={deliveryData} clicked1 ={()=>handleClicked1()} clicked2 = {()=>handleClicked2()}/>
       {clicked1 &&<div>
         <h2>Add New Entry</h2>
-        <DynamicForm columns={DeliverItemTableData.columns} onSubmit={handleAddEntry} />
+        <DynamicForm data ={deliveryData} onSubmit={handleAddEntry} />
       </div>}
       {clicked2 && <div>
         <h2>Delete Entry</h2>

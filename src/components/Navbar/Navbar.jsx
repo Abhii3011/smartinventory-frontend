@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Logo from '../Requires/Logo';
 import GodownDetailsTable from '../GodownDetails';
 import './Navbar.css';
@@ -12,9 +12,10 @@ import {authenticateUser, updateUserPassword} from '../authenticateService/authS
 
 
 // Import the dummy Godown data
-import { GodownTableData } from '../ManagementData/ManagementData';
+import { fetchGodownData } from '../ManagementData/ManagementData';
 
 function Navbar({cartItems}) {
+  const [godownData, setGodownData] = useState([]);
   const [selectedGodown, setSelectedGodown] = useState(null);
   const [logoutVisible, setLogoutVisible] = useState(false);
   const [changePasswordVisible, setChangePasswordVisible] = useState(false);
@@ -41,11 +42,16 @@ function Navbar({cartItems}) {
   const handleCartItems = () => {
     navigate('/cart', { state: { cartItems } });
   };
+  useEffect(() => {
+    fetchGodownData()
+      .then((data) => { setGodownData(data)})
+      .catch((error) => console.error('Error setting Godown data:', error));
+  }, []);
 
   const handleGodownChange = (event) => {
     const selectedGodownId = event.target.value;
-    const selectedGodown = GodownTableData.data.find(
-      (godown) => godown['Godown ID'] === selectedGodownId
+    const selectedGodown = godownData.find(
+      (godown) => godown['godownId'] === selectedGodownId
     );
     setSelectedGodown(selectedGodown);
   };
@@ -87,9 +93,9 @@ function Navbar({cartItems}) {
                 value={selectedGodown ? selectedGodown['Godown ID'] : ''}
               >
                 <option value="">Select Godown</option>
-                {GodownTableData.data.map((godown) => (
-                  <option key={godown['Godown ID']} value={godown['Godown ID']}>
-                    {godown['Godown ID']} - {godown.Location}
+                {godownData.map((godown) => (
+                  <option key={godown['godownId']} value={godown['godownId']}>
+                    {godown['godownId']} - {godown['location']}
                   </option>
                 ))}
               </select>

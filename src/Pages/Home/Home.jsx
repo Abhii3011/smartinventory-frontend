@@ -8,6 +8,7 @@ function Home() {
   const [cartItems, setCartItems] = useState([]);
   const [showProceedToCart, setShowProceedToCart] = useState(false);
 
+
   const navigate = useNavigate();
 
   const handleAddToCart = (product) => {
@@ -114,6 +115,7 @@ function Home() {
           </button>
         )}
       </div>
+      
     </div>
   );
 }

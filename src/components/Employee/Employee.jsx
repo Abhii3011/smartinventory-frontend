@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TableComp from '../TableComp';
 import DynamicForm from '../InputForm/DynamicForm';
-import { EmployeeTableData } from '../ManagementData/ManagementData';
 import DeleteForm from '../InputForm/DeleteForm';
+import { fetchEmployeeData } from '../ManagementData/ManagementData';
 
 function Employee() {
-  const [employeeData, setEmployeeData] = useState(EmployeeTableData.data);
+  const [employeeData, setEmployeeData] = useState([]);
+  useEffect(() => {
+    fetchEmployeeData()
+      .then((data) => { setEmployeeData(data)})
+      .catch((error) => console.error('Error setting employee data:', error));
+  }, []);
   const [clicked1,setClicked1]=useState(false)
   const [clicked2,setClicked2]=useState(false)
   const handleClicked1=()=>{
@@ -22,13 +27,12 @@ function Employee() {
   const handleDeleteEmployee = (name) => {
     setEmployeeData((prevData) => prevData.filter((employee) => employee['Employee Name'] !== name));
   };
-
   return (
     <div>
-      <TableComp columns={EmployeeTableData.columns} data={employeeData} clicked1 ={()=>handleClicked1()} clicked2 = {()=>handleClicked2()} />
+      <TableComp data={employeeData} clicked1 ={()=>handleClicked1()} clicked2 = {()=>handleClicked2()} />
       {clicked1 &&<div>
         <h2>Add New Employee</h2>
-        <DynamicForm columns={EmployeeTableData.columns} onSubmit={handleAddEmployee} />
+        <DynamicForm data={employeeData} onSubmit={handleAddEmployee} />
       </div>}
       {clicked2 && <div>
         <h2>Delete Employee</h2>

@@ -10,22 +10,62 @@ const DeleteForm = ({ onDelete, proType }) => {
   };
 
   return (
-    <div>
+    <div style={formContainerStyle}>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">{proType} Name:</label>
+        <div style={formGroupStyle}>
+          <label htmlFor="name" style={labelStyle}>
+            {proType} Name:
+          </label>
           <input
             type="text"
             id="name"
             name="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            style={inputStyle}
           />
         </div>
-        <button type="submit">Delete {proType}</button>
+        <button type="submit" style={submitButtonStyle}>
+          Delete {proType}
+        </button>
       </form>
     </div>
   );
+};
+
+// Styles
+const formContainerStyle = {
+  padding: '20px',
+  border: '1px solid #ddd',
+  borderRadius: '8px',
+  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+};
+
+const formGroupStyle = {
+  marginBottom: '15px',
+};
+
+const labelStyle = {
+  display: 'block',
+  marginBottom: '8px',
+  fontWeight: 'bold',
+};
+
+const inputStyle = {
+  width: '100%',
+  padding: '8px',
+  fontSize: '14px',
+  borderRadius: '4px',
+  border: '1px solid #ccc',
+};
+
+const submitButtonStyle = {
+  backgroundColor: '#d9534f',
+  color: '#fff',
+  padding: '10px 15px',
+  fontSize: '16px',
+  borderRadius: '4px',
+  cursor: 'pointer',
 };
 
 export default DeleteForm;

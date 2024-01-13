@@ -96,7 +96,6 @@ export {fetchReturnData}
       const response = await fetch('http://localhost:8084/outwardItems');
       console.info(response)
       const data = await response.json();
-      console.info(data)
       return data;
     } catch (error) {
       console.error('Error fetching Return data:', error);
@@ -105,81 +104,6 @@ export {fetchReturnData}
   }
   export {fetchDeliveryItemData}
 
-  export const DeliverItemTableData = {
-    columns: [
-      'Delivery ID',
-      'Godown',
-      'Item Name',
-      'Invoice Number',
-      'Delivery Date',
-      'Deliver To',
-      'Quantity',
-      'Bill Value',
-      'Bill Checked By',
-      'Delivery Location',
-    ],
-    data: [
-      {
-        'Delivery ID': 'DEL001',
-        'Godown': 'Mumbai Godown 1',
-        'Item Name': 'Rice',
-        'Invoice Number': 123,
-        'Delivery Date': '2024-07-10',
-        'Deliver To': 'Priya Sharma',
-        'Quantity': 50,
-        'Bill Value': 500,
-        'Bill Checked By': 'Suresh Singh',
-        'Delivery Location': 'New Delhi',
-      },
-      {
-        'Delivery ID': 'DEL002',
-        'Godown': 'Delhi Godown 1',
-        'Item Name': 'Bread',
-        'Invoice Number': 124,
-        'Delivery Date': '2024-07-15',
-        'Deliver To': 'Arun Gupta',
-        'Quantity': 100,
-        'Bill Value': 800,
-        'Bill Checked By': 'Pooja Verma',
-        'Delivery Location': 'Mumbai',
-      },
-      {
-        'Delivery ID': 'DEL003',
-        'Godown': 'Bangalore Godown 1',
-        'Item Name': 'Milk',
-        'Invoice Number': 125,
-        'Delivery Date': '2024-07-20',
-        'Deliver To': 'Vikram Malhotra',
-        'Quantity': 75,
-        'Bill Value': 600,
-        'Bill Checked By': 'Neha Kapoor',
-        'Delivery Location': 'Chennai',
-      },
-      {
-        'Delivery ID': 'DEL004',
-        'Godown': 'Chennai Godown 1',
-        'Item Name': 'Sugar',
-        'Invoice Number': 126,
-        'Delivery Date': '2024-07-25',
-        'Deliver To': 'Rajesh Kumar',
-        'Quantity': 80,
-        'Bill Value': 700,
-        'Bill Checked By': 'Anita Singh',
-        'Delivery Location': 'Hyderabad',
-      },
-      {
-        'Delivery ID': 'DEL005',
-        'Godown': 'Hyderabad Godown 1',
-        'Item Name': 'Tea Leaves',
-        'Invoice Number': 127,
-        'Delivery Date': '2024-07-30',
-        'Deliver To': 'Neha Kapoor',
-        'Quantity': 40,
-        'Bill Value': 400,
-        'Bill Checked By': 'Ravi Kumar',
-        'Delivery Location': 'Bangalore',
-      },
-    ],
-  };
+
   
   

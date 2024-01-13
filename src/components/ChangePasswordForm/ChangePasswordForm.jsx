@@ -1,6 +1,7 @@
-import { authenticateUser, updateUserPassword } from '../authenticateService/authService';
-import React, { useState } from 'react';
+import { login,updateUserPassword } from '../authenticateService/authService';
+import React, {  useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import axios from '../authenticateService/axiosConfig';
 
 const ChangePasswordForm = ({ onChangePassword }) => {
   const [email, setEmail] = useState('');
@@ -8,28 +9,32 @@ const ChangePasswordForm = ({ onChangePassword }) => {
   const [newPassword, setNewPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
-  const handlePasswordChange = () => {
+  const handlePasswordChange = async() => {
     if (email.trim() === '' || oldPassword.trim() === '' || newPassword.trim() === '') {
       alert('Please enter all required information.');
       return;
     }
 
     // Authenticate user and change password
-    const user = authenticateUser(email, oldPassword);
-    if (!user) {
-      alert('Invalid email or old password. Change password failed.');
-      return;
+    try{
+      await login(email,oldPassword)
+      const response1 = await axios.get("/getuser",email);
+      const data = response1.json()['role'];
+      try{
+        await updateUserPassword(email,newPassword,data)
+      }catch(error){
+        alert("cant update the password",error)
+      }
+      
     }
-
-    // Update user password
-    updateUserPassword(email, newPassword);
-
+    catch(error){
+      return null;
+    }
     // Clear form fields
     setEmail('');
     setOldPassword('');
     setNewPassword('');
-
-    alert('Password changed successfully!');
+    onChangePassword();
   };
 
   const togglePasswordVisibility = () => {

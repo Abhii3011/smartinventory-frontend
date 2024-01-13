@@ -5,13 +5,6 @@ import './Navbar.css';
 import Logout from '../cards/Logout';
 import { useNavigate } from 'react-router-dom';
 import ChangePasswordForm from '../ChangePasswordForm';
-import {authenticateUser, updateUserPassword} from '../authenticateService/authService';
-
-
-
-
-
-// Import the dummy Godown data
 import { fetchGodownData } from '../ManagementData/ManagementData';
 
 function Navbar({cartItems}) {
@@ -21,23 +14,10 @@ function Navbar({cartItems}) {
   const [changePasswordVisible, setChangePasswordVisible] = useState(false);
   const navigate = useNavigate();
 
-  const handlePasswordChange = (email, oldPassword, newPassword) => {
-    const user = authenticateUser(email, oldPassword);
-    if (!user) {
-      alert('Invalid email or old password. Change password failed.');
-      return;
-    }
+  const handlePasswordChange = () => {
 
-    // Update user password
-    updateUserPassword(email, newPassword);
-
-    setChangePasswordVisible(false);
-    alert('Password changed successfully!');
+    setChangePasswordVisible("false")
   };
-
-  // const handleCartItems = () => {
-  //   navigate('/cart');
-  // };
   
   const handleCartItems = () => {
     navigate('/cart', { state: { cartItems } });

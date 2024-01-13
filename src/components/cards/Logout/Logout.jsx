@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Spinner } from 'react-bootstrap';
 
 const Logout = () => {
   const [loading, setLoading] = useState(true);
-
+  const navigate = useNavigate()
   useEffect(() => {
    
     const timeoutId = setTimeout(() => {
       // Clear user data from local storage
-      localStorage.removeItem('user');
+      localStorage.removeItem('authenticated');
 
       // Stoping the spinner
       setLoading(false);
 
       // Redirect to the login page after the animation completes
-      window.location.href = '/';
+      navigate('/')
     }, 4000); // Simulated 4 seconds delay
 
     return () => clearTimeout(timeoutId);

@@ -5,6 +5,7 @@ import ProductImage from '../../components/Files/Channa-Masala-v1.png';
 import { useNavigate } from 'react-router-dom';
 
 function Home() {
+  console.info("in home--->")
   const [cartItems, setCartItems] = useState([]);
   const [showProceedToCart, setShowProceedToCart] = useState(false);
 

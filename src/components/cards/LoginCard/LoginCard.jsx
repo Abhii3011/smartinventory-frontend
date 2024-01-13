@@ -11,7 +11,7 @@ import {
   MDBCheckbox
 } from 'mdb-react-ui-kit';
 import './LoginCard.css';
-import { authenticateUser } from '../../authenticateService/authService';
+import { login } from '../../authenticateService/authService';
 
 function LoginCard() {
   const navigate = useNavigate();
@@ -27,18 +27,25 @@ function LoginCard() {
     setPassword(e.target.value);
   };
 
-  const handleLoginClick = () => {
-    const user = authenticateUser(email, password);
-
-    if (user) {
-      // Successful login, store user details in local storage or context
-      localStorage.setItem('user', JSON.stringify(user));
-      navigate('/home');
-      setErrorMessage('');
-    } else {
-      // Invalid credentials, show an error message
+  const handleLoginClick = async() => {
+    try{
+      await login(email,password).then((res) => {console.info("res--->",res);navigate("/home")}).catch(()=>setErrorMessage("Invalid Credentials"))
+      
+    }catch{
       setErrorMessage('Invalid email or password. Please try again.');
+      navigate('/')
     }
+    // const user = authenticateUser(email, password);
+
+    // if (user) {
+    //   // Successful login, store user details in local storage or context
+    //   localStorage.setItem('user', JSON.stringify(user));
+    //   navigate('/home');
+    //   setErrorMessage('');
+    // } else {
+    //   // Invalid credentials, show an error message
+    //   setErrorMessage('Invalid email or password. Please try again.');
+    // }
   };
 
   return (
@@ -49,8 +56,8 @@ function LoginCard() {
             <MDBCardBody className='p-5 w-100 d-flex flex-column'>
               <h2 className="fw-bold mb-2 text-center">Sign in</h2>
               <p className="text-white-50 mb-3">Please enter your login and password!</p>
-              <MDBInput wrapperClass='mb-4 w-100' label='Email address' id='formControlLg' type='email' size="lg" onChange={handleEmailChange} />
-              <MDBInput wrapperClass='mb-4 w-100' label='Password' id='formControlLg' type='password' size="lg" onChange={handlePasswordChange} />
+              <MDBInput wrapperClass='mb-4 w-100' label='Email address' id='formControlEmail' type='email' size="lg" onChange={handleEmailChange} />
+              <MDBInput wrapperClass='mb-4 w-100' label='Password' id='formControlPswd' type='password' size="lg" onChange={handlePasswordChange} />
               <MDBCheckbox name='flexCheck' id='flexCheckDefault' className='mb-4' label='Remember password' />
               {errorMessage && <p className="text-danger">{errorMessage}</p>}
               <button className="button-69" onClick={handleLoginClick}>Login</button>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Spinner } from 'react-bootstrap';
 
 const Logout = () => {
   const [loading, setLoading] = useState(true);

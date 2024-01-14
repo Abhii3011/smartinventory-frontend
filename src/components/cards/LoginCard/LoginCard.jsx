@@ -12,13 +12,14 @@ import {
 } from 'mdb-react-ui-kit';
 import './LoginCard.css';
 import { login } from '../../authenticateService/authService';
-
+import { BeatLoader } from 'react-spinners';
 
 function LoginCard() {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [loading,setLoading] = useState(true);
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -26,33 +27,25 @@ function LoginCard() {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
-
+  const handleNavigate = ()=>{
+    localStorage.getItem('role')==="User"?navigate("/home"): navigate("/management")
+  }
   const handleLoginClick = async() => {
+    setLoading(false);
     
     try{
       await login(email,password)
       .then(() =>{
-         {localStorage.getItem('role')==="User"?
-          navigate("/home"): navigate("/management")}
+         handleNavigate()
         })
          .catch(()=>setErrorMessage("Invalid Credentials"))
       localStorage.setItem("userEmail",email);
     }catch{
       setErrorMessage('Invalid email or password. Please try again.');
+      setLoading(true);
       navigate('/')
     }
-    // const user = authenticateUser(email, password);
-
-    // if (user) {
-    //   // Successful login, store user details in local storage or context
-    //   localStorage.setItem('user', JSON.stringify(user));
-    //   navigate('/home');
-    //   setErrorMessage('');
-    // } else {
-    //   // Invalid credentials, show an error message
-    //   setErrorMessage('Invalid email or password. Please try again.');
-    // }
-  };
+  }
 
   return (
     <MDBContainer fluid>
@@ -66,7 +59,14 @@ function LoginCard() {
               <MDBInput wrapperClass='mb-4 w-100' label='Password' id='formControlPswd' type='password' size="lg" onChange={handlePasswordChange} />
               <MDBCheckbox name='flexCheck' id='flexCheckDefault' className='mb-4' label='Remember password' />
               {errorMessage && <p className="text-danger">{errorMessage}</p>}
-              <button className="button-69" onClick={handleLoginClick}>Login</button>
+              <button className="button-69" onClick={handleLoginClick}>
+              {loading &&<div>
+                Login
+                </div>}
+                {!loading && <div>
+                <BeatLoader color='#36d7b7'/></div>}
+                </button>
+              
             </MDBCardBody>
           </MDBCard>
         </MDBCol>
@@ -75,4 +75,4 @@ function LoginCard() {
   );
 }
 
-export default LoginCard;
+export default LoginCard

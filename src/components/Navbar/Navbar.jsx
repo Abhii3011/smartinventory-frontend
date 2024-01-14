@@ -6,7 +6,7 @@ import Logout from '../cards/Logout';
 import { useNavigate } from 'react-router-dom';
 import ChangePasswordForm from '../ChangePasswordForm';
 import { fetchGodownData } from '../ManagementData/ManagementData';
-import { Spinner } from 'react-bootstrap';
+import { SyncLoader } from 'react-spinners';
 
 function Navbar({cartItems}) {
   const [godownData, setGodownData] = useState([]);
@@ -109,7 +109,7 @@ function Navbar({cartItems}) {
             style={{ backgroundColor: 'red', color: 'white' }}
             onClick={handleLogout}
           >
-            {loading&&<div><Spinner style={{padding : "2px"}} animation="border" role="status"/>
+            {loading&&<div><SyncLoader color="#FBEEE6" size={10}/>
             </div>}
             {!loading && <div>Log Out</div>}
           </button>

@@ -8,6 +8,7 @@ function Inwards() {
   const [inwardData, setInwardData] = useState(InwardItemTableData.data);
   const [clicked1,setClicked1]=useState(false)
   const [clicked2,setClicked2]=useState(false)
+  const isVisible = true;
   const handleClicked1=()=>{
     setClicked1(true)
     setClicked2(false)
@@ -26,7 +27,7 @@ function Inwards() {
 
   return (
     <div>
-      <TableComp columns={InwardItemTableData.columns} data={inwardData}clicked1 ={()=>handleClicked1()} clicked2 = {()=>handleClicked2()} />
+      <TableComp isVisible={isVisible} columns={InwardItemTableData.columns} data={inwardData}clicked1 ={()=>handleClicked1()} clicked2 = {()=>handleClicked2()} />
       {clicked1 &&<div>
         <h2>Add New Entry</h2>
         <DynamicForm columns={InwardItemTableData.columns} onSubmit={handleAddEntry} />

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 const DeleteForm = ({ onDelete, proType }) => {
   const [name, setName] = useState('');
-
   const handleSubmit = (event) => {
     event.preventDefault();
     onDelete(name);
@@ -10,7 +9,8 @@ const DeleteForm = ({ onDelete, proType }) => {
   };
 
   return (
-    <div style={formContainerStyle}>
+    <div>
+    { <div style={formContainerStyle}>
       <form onSubmit={handleSubmit}>
         <div style={formGroupStyle}>
           <label htmlFor="name" style={labelStyle}>
@@ -29,6 +29,7 @@ const DeleteForm = ({ onDelete, proType }) => {
           Delete {proType}
         </button>
       </form>
+    </div>}
     </div>
   );
 };

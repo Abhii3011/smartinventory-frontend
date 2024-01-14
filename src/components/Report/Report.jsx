@@ -8,6 +8,7 @@ function Report() {
   const [reportData, setReportData] = useState([]);
   const [clicked1,setClicked1]=useState(false)
   const [clicked2,setClicked2]=useState(false)
+  const isVisible = localStorage.getItem("role")==="Admin"? true : false;
   useEffect(() => {
     fetchReportData()
       .then((data) => { setReportData(data)})
@@ -31,7 +32,7 @@ function Report() {
   return (
     <div>
       
-      <TableComp data={reportData} clicked1 ={()=>handleClicked1()} clicked2 = {()=>handleClicked2()} />
+      <TableComp isVisible={isVisible} data={reportData} clicked1 ={()=>handleClicked1()} clicked2 = {()=>handleClicked2()} />
       {clicked1 &&<div>
         <h2>Add New Entry</h2>
         <DynamicForm data ={reportData} onSubmit={handleAddEntry} />

@@ -6,6 +6,7 @@ import { fetchEmployeeData } from '../ManagementData/ManagementData';
 
 function Employee() {
   const [employeeData, setEmployeeData] = useState([]);
+  const isVisible = localStorage.getItem("role")==="Admin"? true : false;
   useEffect(() => {
     fetchEmployeeData()
       .then((data) => { setEmployeeData(data)})
@@ -25,11 +26,11 @@ function Employee() {
     setEmployeeData((prevData) => [...prevData, newEmployee]);
   };
   const handleDeleteEmployee = (name) => {
-    setEmployeeData((prevData) => prevData.filter((employee) => employee['Employee Name'] !== name));
+    setEmployeeData((prevData) => prevData.filter((employee) => employee['employeeName'] !== name));
   };
   return (
     <div>
-      <TableComp data={employeeData} clicked1 ={()=>handleClicked1()} clicked2 = {()=>handleClicked2()} />
+      <TableComp isVisible={isVisible} data={employeeData} clicked1 ={()=>handleClicked1()} clicked2 = {()=>handleClicked2()} />
       {clicked1 &&<div>
         <h2>Add New Employee</h2>
         <DynamicForm data={employeeData} onSubmit={handleAddEmployee} />

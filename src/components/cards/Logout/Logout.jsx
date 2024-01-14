@@ -10,7 +10,8 @@ const Logout = () => {
     const timeoutId = setTimeout(() => {
       // Clear user data from local storage
       localStorage.removeItem('authenticated');
-
+      localStorage.removeItem('role')
+      localStorage.removeItem('userEmail')
       // Stoping the spinner
       setLoading(false);
 
@@ -25,18 +26,15 @@ const Logout = () => {
     <div className="logout-container">
       {loading ? (
         // Show loading spinner while logging out
-        <div className="logout-message">
-          <Spinner animation="border" role="status">
-            <span className="sr-only">Loading...</span>
-          </Spinner>
+        <center><div className="logout-message">
           <p>Logging out...</p>
           <p>Thank you for using our SIMS! You are logging out.</p>
-        </div>
+        </div></center>
       ) : (
         // Show "Thank You" message after logging out
-        <div className="logout-message">
+        <center><div className="logout-message">
           <p>Thank you ! Have a great day :)</p>
-        </div>
+        </div></center>
       )}
     </div>
   );

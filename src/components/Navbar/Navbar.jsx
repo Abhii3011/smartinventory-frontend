@@ -6,12 +6,14 @@ import Logout from '../cards/Logout';
 import { useNavigate } from 'react-router-dom';
 import ChangePasswordForm from '../ChangePasswordForm';
 import { fetchGodownData } from '../ManagementData/ManagementData';
+import { Spinner } from 'react-bootstrap';
 
 function Navbar({cartItems}) {
   const [godownData, setGodownData] = useState([]);
   const [selectedGodown, setSelectedGodown] = useState(null);
   const [logoutVisible, setLogoutVisible] = useState(false);
   const [changePasswordVisible, setChangePasswordVisible] = useState(false);
+  const [loading,setLoading]=useState(false)
   const navigate = useNavigate();
 
   const handlePasswordChange = () => {
@@ -38,6 +40,7 @@ function Navbar({cartItems}) {
 
   const handleLogout = () => {
     // Show the Logout component
+    setLoading(true)
     setLogoutVisible(true);
   };
 
@@ -59,11 +62,11 @@ function Navbar({cartItems}) {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item">
+            {localStorage.getItem('role')==="user"&&<li className="nav-item">
               <a className="nav-link" href="/home">
                 Home <span className="sr-only">(current)</span>
               </a>
-            </li>
+            </li>}
 
             {/* Godown dropdown */}
             <li className="nav-item dropdown">
@@ -80,16 +83,16 @@ function Navbar({cartItems}) {
                 ))}
               </select>
             </li>
-            <li className="nav-item">
+            {localStorage.getItem('role')==="User"&&<li className="nav-item">
               <a className="nav-link" href="/cart" onClick={handleCartItems} >
                 Cart
               </a>
-            </li>
-            <li className="nav-item">
+            </li>}
+            {(localStorage.getItem('role')==="Manager" || localStorage.getItem('role')==="Admin")&&<li className="nav-item">
               <a className="nav-link" href="/management" tabIndex="-1">
                 Management
               </a>
-            </li>
+            </li>}
             {/* Add a button for changing password */}
             <li className="nav-item">
               <button
@@ -106,7 +109,9 @@ function Navbar({cartItems}) {
             style={{ backgroundColor: 'red', color: 'white' }}
             onClick={handleLogout}
           >
-            Logout
+            {loading&&<div><Spinner style={{padding : "2px"}} animation="border" role="status"/>
+            </div>}
+            {!loading && <div>Log Out</div>}
           </button>
         </div>
       </nav>

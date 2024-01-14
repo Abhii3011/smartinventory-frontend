@@ -9,6 +9,7 @@ function Return() {
 
   const [clicked1,setClicked1]=useState(false)
   const [clicked2,setClicked2]=useState(false)
+  const isVisible = true;
   useEffect(() => {
     fetchReturnData()
       .then((data) => { setReturnData(data)})
@@ -30,7 +31,7 @@ function Return() {
   };
   return (
     <div>
-      <TableComp  data={returnData} clicked1 ={()=>handleClicked1()} clicked2 = {()=>handleClicked2()} />
+      <TableComp isVisible={isVisible}  data={returnData} clicked1 ={()=>handleClicked1()} clicked2 = {()=>handleClicked2()} />
       {clicked1 &&<div>
         <h2>Add New Entry</h2>
         <DynamicForm data={returnData} onSubmit={handleAddEntry} />

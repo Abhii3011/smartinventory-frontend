@@ -16,9 +16,14 @@ import axios from './axiosConfig';
   //   }
   //   return user;
   // });
-export const updateUserPassword = async(username,password,role)=>{
+export const updateUserPassword = async(userName,userEmail,userPassword,role)=>{
+  const formData = new FormData();
+      formData.append('username',userName);
+      formData.append('userEmail',userEmail);
+      formData.append('userPassword', userPassword);
+      formData.append('role',role);
   try{
-    const response = await axios.put("/updateuser",{username,password,role})
+    const response = await axios.put(`/updateuser/{userEmail}`,formData)
     return response.data;
   }catch(error){
     console.error('Update failed:', error.response ? error.response.data : error.message);
@@ -32,7 +37,8 @@ export const login = async (userEmail, userPassword) => {
       formData.append('userPassword', userPassword);
   try {
     const response = await axios.post('/loginrequest', formData);
-    localStorage.setItem('authenticated', true);// Store a key to indicate authentication
+    localStorage.setItem('authenticated', true);
+    localStorage.setItem('role',response.data);// Store a key to indicate authentication
     return response.data;
   } catch (error) {
     

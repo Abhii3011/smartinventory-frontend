@@ -13,12 +13,12 @@ import {
 import './LoginCard.css';
 import { login } from '../../authenticateService/authService';
 
+
 function LoginCard() {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -28,9 +28,15 @@ function LoginCard() {
   };
 
   const handleLoginClick = async() => {
+    
     try{
-      await login(email,password).then((res) => {console.info("res--->",res);navigate("/home")}).catch(()=>setErrorMessage("Invalid Credentials"))
-      
+      await login(email,password)
+      .then(() =>{
+         {localStorage.getItem('role')==="User"?
+          navigate("/home"): navigate("/management")}
+        })
+         .catch(()=>setErrorMessage("Invalid Credentials"))
+      localStorage.setItem("userEmail",email);
     }catch{
       setErrorMessage('Invalid email or password. Please try again.');
       navigate('/')

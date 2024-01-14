@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 const DynamicForm = ({ data, onSubmit }) => {
   const [formData, setFormData] = useState({});
   const columns = data.length > 0 ? Object.keys(data[0]) : [];
-
   const handleChange = (columnName, value) => {
     setFormData((prevData) => ({
       ...prevData,
@@ -54,6 +53,7 @@ const DynamicForm = ({ data, onSubmit }) => {
   };
 
   return (
+    <div>
     <div style={formContainerStyle}>
       <form onSubmit={handleSubmit}>
         {columns.map((column) => (
@@ -68,6 +68,7 @@ const DynamicForm = ({ data, onSubmit }) => {
           Add Entry
         </button>
       </form>
+    </div>
     </div>
   );
 };

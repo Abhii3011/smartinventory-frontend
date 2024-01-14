@@ -15,6 +15,7 @@ import Delivery from '../../components/Delivery/Delivery';
 function Management() {
  const [selectedMenuItem, setSelectedMenuItem] = useState('');
  const navigate = useNavigate();
+ const isVisible = localStorage.getItem("role")==="Admin"?true:false;
 
  const handleMenuItemClick = (menuItem) => {
     setSelectedMenuItem(menuItem);
@@ -41,12 +42,12 @@ function Management() {
             <MenuItem key="user-details" onClick={() => handleMenuItemClick('user-details')}>
               User Details
             </MenuItem>
-            <MenuItem key="godowns" onClick={() => handleMenuItemClick('godowns')}>
+            {isVisible&&<MenuItem key="godowns" onClick={() => handleMenuItemClick('godowns')}>
               Godowns
-            </MenuItem>
-            <MenuItem key="employees" onClick={() => handleMenuItemClick('employees')}>
+            </MenuItem>}
+            {isVisible&&<MenuItem key="employees" onClick={() => handleMenuItemClick('employees')}>
               Employees
-            </MenuItem>
+            </MenuItem>}
             <MenuItem key="inwards" component={<Link to="/management/inwards" />}>
               Inwards
             </MenuItem>
@@ -56,9 +57,9 @@ function Management() {
             <MenuItem key="returns" onClick={() => handleMenuItemClick('returns')}>
               Returns
             </MenuItem>
-            <MenuItem key="reports" onClick={() => handleMenuItemClick('reports')}>
+            {isVisible&&<MenuItem key="reports" onClick={() => handleMenuItemClick('reports')}>
               Reports
-            </MenuItem>
+            </MenuItem>}
           </Menu>
         </Sidebar>
         <div className="management-main">
@@ -72,7 +73,9 @@ function Management() {
             <Route path="/returns" element={<Return />} />
             <Route path="/reports" element={<Report />} />
           </Routes>
+          
         </div>
+
       </div>
     </div>
  );

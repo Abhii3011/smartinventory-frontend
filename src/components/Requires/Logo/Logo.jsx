@@ -6,7 +6,7 @@ function Logo() {
   const Navigate = useNavigate();
   const handleClick = () =>
   {
-    Navigate('/home');
+    localStorage.getItem("role")==="User"?Navigate('/home'): Navigate('/management')
   }
   return (
     <div onClick={handleClick} className='logo-section'>

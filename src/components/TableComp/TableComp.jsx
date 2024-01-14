@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-function TableComp({ data, clicked1, clicked2 }) {
+function TableComp({ data, clicked1, clicked2, isVisible }) {
   const columns = (data !=null &&data.length > 0) ? Object.keys(data[0]) : [];
 
   const handleClick = () => {
@@ -15,7 +15,7 @@ function TableComp({ data, clicked1, clicked2 }) {
 
   return (
     <div>
-      { data !== null && data.length>0 &&
+      { data !== null && data.length>0 && 
       <table className="table">
       <thead>
         <tr>
@@ -34,7 +34,7 @@ function TableComp({ data, clicked1, clicked2 }) {
         ))}
       </tbody>
     </table>}
-      <div>
+      {isVisible && <div>
         <button
           className="button-37"
           style={{ backgroundColor: 'white', margin: '10px', color: 'black' }}
@@ -49,7 +49,7 @@ function TableComp({ data, clicked1, clicked2 }) {
         >
           Delete
         </button>
-      </div>
+      </div>}
     </div>
   );
 }

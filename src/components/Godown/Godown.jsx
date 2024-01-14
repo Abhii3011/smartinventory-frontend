@@ -9,6 +9,7 @@ function Godown() {
   const [godownData, setGodownData] = useState([]);
   const [clicked1,setClicked1]=useState(false)
   const [clicked2,setClicked2]=useState(false)
+  const isVisible = localStorage.getItem("role")==="Admin"? true : false
   useEffect(() => {
     fetchGodownData()
       .then((data) => { setGodownData(data)})
@@ -35,16 +36,17 @@ function Godown() {
   return (
     <div>
       <h2>Godown Data</h2>
-      <TableComp  data={godownData} clicked1 ={()=>handleClicked1()} clicked2 = {()=>handleClicked2()} />
+      <TableComp isVisible = {isVisible} data={godownData} clicked1 ={()=>handleClicked1()} clicked2 = {()=>handleClicked2()} />
 
-      
-      {clicked1 &&<div>
+      {isVisible &&<div>
+      { clicked1 &&<div>
         <h2>Add New Godown</h2>
         <DynamicForm data ={godownData} onSubmit={handleAddGodown} />
       </div>}
       {clicked2 && <div>
         <h2>Delete Godown</h2>
         <DeleteForm proType={'Godown'} onDelete={handleDeleteGodown} />
+      </div>}
       </div>}
     </div>
   );

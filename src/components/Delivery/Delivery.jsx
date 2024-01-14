@@ -7,6 +7,7 @@ function Delivery() {
   const [deliveryData, setDeliveryData] = useState([]);
   const [clicked1,setClicked1]=useState(false)
   const [clicked2,setClicked2]=useState(false)
+  const isVisible = true;
   useEffect(() => {
     fetchDeliveryItemData()
       .then((data) => { setDeliveryData(data)})
@@ -26,12 +27,11 @@ function Delivery() {
   const handleDeleteEntry = (name) => {
     setDeliveryData((prevData) => prevData.filter((delivery) => delivery['Delivery ID'] !== name));
   };
- console.info(deliveryData)
 
 
   return (
     <div>
-      <TableComp data={deliveryData} clicked1 ={()=>handleClicked1()} clicked2 = {()=>handleClicked2()}/>
+      <TableComp isVisible = {isVisible}data={deliveryData} clicked1 ={()=>handleClicked1()} clicked2 = {()=>handleClicked2()}/>
       {clicked1 &&<div>
         <h2>Add New Entry</h2>
         <DynamicForm data ={deliveryData} onSubmit={handleAddEntry} />

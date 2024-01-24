@@ -8,6 +8,7 @@ import Cart from './Pages/Cart';
 import UserRoute from './components/UserRoutes/UserRoute';
 import ManagementRoute from './components/ManagementRoutes/ManagementRoute';
 import Signup from './Pages/Signup/Signup';
+import BotpressChatComponent from './components/botPressChatbot/BotpressChatComponent';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 
 function App() {
@@ -18,12 +19,12 @@ function App() {
     <Route index path = "/" element = {<LoginPage/>}/>
     <Route index path ="/signup" element = {<Signup/>}/>
     <Route path = "/" element = {<UserRoute/>}>
-      <Route path= "home" element={<Home/>}/>
+      <Route path= "home" element={<><Home/> <BotpressChatComponent /></>}/>
       <Route path= "home" element={<InvoicePage/>}/>
       <Route path= "home" element={<Cart/>}/>
       </Route>
     <Route path = "/" element = {<ManagementRoute/>}>
-    <Route path= "/management/*" element={<Management/>}/>
+    <Route path= "/management/*" element={<><Management/> <BotpressChatComponent /></>}/>
       </Route> 
  
    

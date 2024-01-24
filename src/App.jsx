@@ -20,8 +20,8 @@ function App() {
     <Route index path ="/signup" element = {<Signup/>}/>
     <Route path = "/" element = {<UserRoute/>}>
       <Route path= "home" element={<><Home/> <BotpressChatComponent /></>}/>
-      <Route path= "home" element={<InvoicePage/>}/>
-      <Route path= "home" element={<Cart/>}/>
+      <Route path= "invoice" element={<InvoicePage/>}/>
+      <Route path= "cart" element={<><Cart/> </>}/>
       </Route>
     <Route path = "/" element = {<ManagementRoute/>}>
     <Route path= "/management/*" element={<><Management/> <BotpressChatComponent /></>}/>

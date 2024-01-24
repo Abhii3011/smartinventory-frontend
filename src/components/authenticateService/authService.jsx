@@ -1,24 +1,7 @@
-// // authentication.js
-// export let users = [
-//   { id: 1, email: 'abhinav.sahai@sims.com', password: 'abhinav', role: 'Admin', name: 'Abhinav Sahai' },
-//   { id: 2, email: 'nikhil.naidu@sims.com', password: 'nikhil', role: 'Manager', name: 'Nikhil Naidu' },
-//   { id: 3, email: 'user@sims.com', password: 'user', role: 'User', name: 'Random User' }
-// ];
-
-// export const authenticateUser = (email, password) => {
-//   return users.find(user => user.email === email && user.password === password);
-// };
 import axios from './axiosConfig';
-
-  // users = users.map(user => {
-  //   if (user.email === email) {
-  //     return { ...user, password: newPassword };
-  //   }
-  //   return user;
-  // });
 export const updateUserPassword = async(userName,userEmail,userPassword,role)=>{
   const formData = new FormData();
-      formData.append('username',userName);
+      formData.append('userName',userName);
       formData.append('userEmail',userEmail);
       formData.append('userPassword', userPassword);
       formData.append('role',role);
@@ -27,6 +10,23 @@ export const updateUserPassword = async(userName,userEmail,userPassword,role)=>{
     return response.data;
   }catch(error){
     console.error('Update failed:', error.response ? error.response.data : error.message);
+    throw error;
+  }
+}
+
+export const userSignUp = async(oldFormData)=>{
+  const formData = new FormData();
+  formData.append('userName',oldFormData.userName)
+  formData.append('userEmail',oldFormData.userEmail)
+  formData.append('userPassword',oldFormData.userPassword)
+  formData.append('role',"User")
+
+  try{
+    const response = await axios.post(`/signup`,formData);
+    return response.data;
+  }
+  catch(error){
+    console.error('Signup failed:', error.response ? error.response.data : error.message);
     throw error;
   }
 }

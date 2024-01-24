@@ -38,11 +38,11 @@ function LoginCard() {
       .then(() =>{
          handleNavigate()
         })
-         .catch(()=>setErrorMessage("Invalid Credentials"))
+         .catch(()=>{setErrorMessage("Invalid Credentials");setLoading(true);})
       localStorage.setItem("userEmail",email);
     }catch{
       setErrorMessage('Invalid email or password. Please try again.');
-      setLoading(true);
+      
       navigate('/')
     }
   }
@@ -59,6 +59,7 @@ function LoginCard() {
               <MDBInput wrapperClass='mb-4 w-100' label='Password' id='formControlPswd' type='password' size="lg" onChange={handlePasswordChange} />
               <MDBCheckbox name='flexCheck' id='flexCheckDefault' className='mb-4' label='Remember password' />
               {errorMessage && <p className="text-danger">{errorMessage}</p>}
+
               <button className="button-69" onClick={handleLoginClick}>
               {loading &&<div>
                 Login
@@ -66,6 +67,8 @@ function LoginCard() {
                 {!loading && <div>
                 <BeatLoader color='#36d7b7'/></div>}
                 </button>
+                <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="/signup"
+                class="link-danger">Register</a></p>
               
             </MDBCardBody>
           </MDBCard>

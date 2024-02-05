@@ -1,7 +1,3 @@
-[submodule "smartinventory-frontend"]
-    path = smartinventory-frontend
-    url = https://github.com/Abhii3011/smartinventory-frontend.git
-
 [submodule "smartinventory-frontend/smartinventory-frontend"]
     path = smartinventory-frontend/smartinventory-frontend
     url = https://github.com/Abhii3011/smartinventory-frontend.git

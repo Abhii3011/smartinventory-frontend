@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d4fbc828.css",
+    "main.js": "/static/js/main.a410d467.js",
+    "static/js/498.7cd38a8a.chunk.js": "/static/js/498.7cd38a8a.chunk.js",
+    "static/js/703.b2aa6dc4.chunk.js": "/static/js/703.b2aa6dc4.chunk.js",
+    "static/js/379.b0cd5775.chunk.js": "/static/js/379.b0cd5775.chunk.js",
+    "static/media/Channa-Masala-v1.png": "/static/media/Channa-Masala-v1.788da13883ec034b7878.png",
+    "static/media/sims-logo-removebg.png": "/static/media/sims-logo-removebg.d8b50a35a7cdcc5f2b42.png",
+    "index.html": "/index.html",
+    "main.d4fbc828.css.map": "/static/css/main.d4fbc828.css.map",
+    "main.a410d467.js.map": "/static/js/main.a410d467.js.map",
+    "498.7cd38a8a.chunk.js.map": "/static/js/498.7cd38a8a.chunk.js.map",
+    "703.b2aa6dc4.chunk.js.map": "/static/js/703.b2aa6dc4.chunk.js.map",
+    "379.b0cd5775.chunk.js.map": "/static/js/379.b0cd5775.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d4fbc828.css",
+    "static/js/main.a410d467.js"
+  ]
+}

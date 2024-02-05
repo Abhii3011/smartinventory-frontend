@@ -2,7 +2,7 @@
 
 async function fetchEmployeeData() {
   try {
-    const response = await fetch('http://localhost:8084/employeeControllerapi/employee');
+    const response = await fetch('https://smartinventory-backend.azurewebsites.net/employeeControllerapi/employee');
     console.info(response)
     const data = await response.json();
     console.info(data)
@@ -34,7 +34,7 @@ export const ItemTableData = {
 };
 async function fetchGodownData() {
   try {
-    const response = await fetch('http://localhost:8084/godowncontrollerapi/godowns');
+    const response = await fetch('https://smartinventory-backend.azurewebsites.net/godowncontrollerapi/godowns');
     console.info(response)
     const data = await response.json();
     console.info(data)
@@ -48,7 +48,7 @@ export {fetchGodownData}
 
 async function fetchReportData() {
   try {
-    const response = await fetch('http://localhost:8084/reports');
+    const response = await fetch('https://smartinventory-backend.azurewebsites.net/reports');
     console.info(response)
     const data = await response.json();
     console.info(data)
@@ -62,7 +62,7 @@ export {fetchReportData}
 
 async function fetchReturnData() {
   try {
-    const response = await fetch('http://localhost:8084/reports');
+    const response = await fetch('https://smartinventory-backend.azurewebsites.net/reports');
     console.info(response)
     const data = await response.json();
     console.info(data)
@@ -93,7 +93,7 @@ export {fetchReturnData}
 
   async function fetchDeliveryItemData() {
     try {
-      const response = await fetch('http://localhost:8084/outwardItems');
+      const response = await fetch('https://smartinventory-backend.azurewebsites.net/outwardItems');
       console.info(response)
       const data = await response.json();
       return data;

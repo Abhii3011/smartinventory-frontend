@@ -25,7 +25,7 @@ function Delivery() {
     setDeliveryData((prevData) => [...prevData, newEntry]);
   };
   const handleDeleteEntry = (name) => {
-    setDeliveryData((prevData) => prevData.filter((delivery) => delivery['Delivery ID'] !== name));
+    setDeliveryData((prevData) => prevData.filter((delivery) => delivery['id'] !== name));
   };
 
 

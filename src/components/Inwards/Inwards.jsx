@@ -18,7 +18,7 @@ function Inwards() {
     setClicked1(false)
   }
   const handleDeleteEntry = (name) => {
-    setInwardData((prevData) => prevData.filter((inward) => inward['Supplier Name'] !== name));
+    setInwardData((prevData) => prevData.filter((inward) => inward['Inward Item ID'] !== name));
   };
 
   const handleAddEntry = (newEntry) => {

@@ -27,7 +27,7 @@ function Return() {
     setReturnData((prevData) => [...prevData, newEntry]);
   };
   const handleDeleteEntry = (name) => {
-    setReturnData((prevData) => prevData.filter((returned) => returned['Item Name']!== name));
+    setReturnData((prevData) => prevData.filter((returned) => returned['item_name']!== name));
   };
   return (
     <div>

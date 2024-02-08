@@ -62,7 +62,7 @@ export {fetchReportData}
 
 async function fetchReturnData() {
   try {
-    const response = await fetch('https://smartinventory-backend.azurewebsites.net/reports');
+    const response = await fetch('https://smartinventory-backend.azurewebsites.net/returns');
     console.info(response)
     const data = await response.json();
     console.info(data)

@@ -26,7 +26,7 @@ function Employee() {
     setEmployeeData((prevData) => [...prevData, newEmployee]);
   };
   const handleDeleteEmployee = (name) => {
-    setEmployeeData((prevData) => prevData.filter((employee) => employee['employeeName'] !== name));
+    setEmployeeData((prevData) => prevData.filter((employee) => employee['employeeId'] !== name));
   };
   return (
     <div>

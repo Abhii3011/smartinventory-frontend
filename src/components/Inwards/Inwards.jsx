@@ -34,7 +34,7 @@ function Inwards() {
       </div>}
       {clicked2 && <div>
         <h2>Delete Entry</h2>
-        <DeleteForm proType={'Entry'} onDelete={handleDeleteEntry} />
+        <DeleteForm proType={'Inward Item'} onDelete={handleDeleteEntry} />
       </div>}
     </div>
   );

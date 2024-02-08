@@ -29,7 +29,7 @@ function Godown() {
     setGodownData((prevData) => [...prevData, newGodown]);
   };
   const handleDeleteGodown = (name) => {
-    setGodownData((prevData) => prevData.filter((godown) => godown['name'] !== name));
+    setGodownData((prevData) => prevData.filter((godown) => godown['godownId'] !== name));
   };
   
 

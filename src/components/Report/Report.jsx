@@ -39,7 +39,7 @@ function Report() {
       </div>}
       {clicked2 && <div>
         <h2>Delete Entry</h2>
-        <DeleteForm proType={'Entry'} onDelete={handleDeleteEntry} />
+        <DeleteForm proType={'Report Month'} onDelete={handleDeleteEntry} />
         </div>}
     </div>
   );

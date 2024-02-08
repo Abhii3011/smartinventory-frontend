@@ -38,7 +38,7 @@ function Delivery() {
       </div>}
       {clicked2 && <div>
         <h2>Delete Entry</h2>
-        <DeleteForm proType={'Entry'} onDelete={handleDeleteEntry} />
+        <DeleteForm proType={'Delivery'} onDelete={handleDeleteEntry} />
       </div>}
     </div>
   );

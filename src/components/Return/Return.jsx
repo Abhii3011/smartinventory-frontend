@@ -27,7 +27,7 @@ function Return() {
     setReturnData((prevData) => [...prevData, newEntry]);
   };
   const handleDeleteEntry = (name) => {
-    setReturnData((prevData) => prevData.filter((returned) => returned['item_name']!== name));
+    setReturnData((prevData) => prevData.filter((returned) => returned['returnId']!== name));
   };
   return (
     <div>
@@ -38,7 +38,7 @@ function Return() {
       </div>}
       {clicked2 && <div>
         <h2>Delete Entry</h2>
-        <DeleteForm proType={'Entry'} onDelete={handleDeleteEntry} />
+        <DeleteForm proType={'Return'} onDelete={handleDeleteEntry} />
         </div>}
     </div>
   );

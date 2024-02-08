@@ -14,7 +14,7 @@ const DeleteForm = ({ onDelete, proType }) => {
       <form onSubmit={handleSubmit}>
         <div style={formGroupStyle}>
           <label htmlFor="name" style={labelStyle}>
-            {proType} Name:
+            {proType} ID:
           </label>
           <input
             type="text"

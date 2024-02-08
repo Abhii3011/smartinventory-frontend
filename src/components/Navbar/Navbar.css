@@ -2,3 +2,80 @@
   font-weight: 600;
   padding-left: 1.5rem;
 }
+/* Navbar container */
+.navbar {
+  background-color: #333;
+}
+
+/* Navbar links */
+.navbar-nav {
+  margin-right: auto;
+}
+
+.navbar-nav li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.navbar-nav li:last-child {
+  margin-right: 0;
+}
+
+.navbar-nav li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+}
+
+/* Toggle button */
+.navbar-toggler {
+  display: none;
+}
+
+/* Responsive layout */
+@media screen and (max-width: 768px) {
+  .navbar-nav {
+    display: none;
+    margin-right: 0;
+  }
+
+  .navbar-toggler {
+    display: block;
+  }
+
+  .navbar-toggler-icon {
+    background-color: white;
+    height: 2px;
+    width: 20px;
+    display: block;
+    margin-top: 4px;
+  }
+
+  .navbar-toggler.active .navbar-toggler-icon:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .navbar-toggler.active .navbar-toggler-icon:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar-toggler.active .navbar-toggler-icon:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
+  .navbar-collapse {
+    display: none;
+    padding-top: 10px;
+  }
+
+  .navbar-collapse.active {
+    display: block;
+  }
+
+  .navbar-collapse li {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}

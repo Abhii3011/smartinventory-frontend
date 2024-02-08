@@ -71,11 +71,18 @@
 
   .navbar-collapse.active {
     display: block;
+    background-color: #333; /* Set background color */
+    padding: 10px; /* Add padding for spacing */
   }
 
   .navbar-collapse li {
-    display: block;
+    display: table-row; /* Display as table row */
     text-align: center;
     margin-bottom: 10px;
+  }
+
+  .navbar-collapse li a {
+    display: table-cell; /* Display as table cell */
+    padding: 10px 0; /* Adjust padding */
   }
 }

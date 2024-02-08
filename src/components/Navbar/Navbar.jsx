@@ -69,7 +69,7 @@ function Navbar({cartItems}) {
             </li>}
 
             {/* Godown dropdown */}
-            <li className="nav-item dropdown">
+            {localStorage.getItem('role')==="User"&&<li className="nav-item dropdown">
               <select
                 className="form-control"
                 onChange={handleGodownChange}
@@ -82,7 +82,7 @@ function Navbar({cartItems}) {
                   </option>
                 ))}
               </select>
-            </li>
+            </li>}
             {localStorage.getItem('role')==="User"&&<li className="nav-item">
               <a className="nav-link" href="/cart" onClick={handleCartItems} >
                 Cart
